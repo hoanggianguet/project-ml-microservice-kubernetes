@@ -1,0 +1,29 @@
+(.devops) ubuntu@ip-172-31-12-31:~/DevOps_Microservices/project-ml-microservice-kubernetes$ ./run_kubernetes.sh 
+NAME                    READY   STATUS    RESTARTS       AGE
+udacity-microservices   1/1     Running   1 (9m9s ago)   14m
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+Handling connection for 8000
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://10.244.0.16:80
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 140-391-929
+127.0.0.1 - - [08/May/2023 15:03:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/May/2023 15:05:38] "GET / HTTP/1.1" 200 -
+[2023-05-08 15:05:50,283] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-05-08 15:05:50,339] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-05-08 15:05:50,357] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-05-08 15:05:50,370] INFO in app: The output prediction is: [20.35373177134412]
+127.0.0.1 - - [08/May/2023 15:05:50] "POST /predict HTTP/1.1" 200 -

@@ -1,0 +1,57 @@
+(.devops) ubuntu@ip-172-31-12-31:~/DevOps_Microservices/project-ml-microservice-kubernetes$ ./run_docker.sh 
+[+] Building 0.3s (10/10) FINISHED                                                                                                                                                                      
+ => [internal] load .dockerignore                                                                                                                                                                  0.0s
+ => => transferring context: 2B                                                                                                                                                                    0.0s
+ => [internal] load build definition from Dockerfile                                                                                                                                               0.0s
+ => => transferring dockerfile: 486B                                                                                                                                                               0.0s
+ => [internal] load metadata for docker.io/library/python:3.7.3-stretch                                                                                                                            0.2s
+ => [auth] library/python:pull token for registry-1.docker.io                                                                                                                                      0.0s
+ => [1/4] FROM docker.io/library/python:3.7.3-stretch@sha256:205cafadbb7f0c48f2a6d655eb100a9675aa85e6e73958860f488406cce09779                                                                      0.0s
+ => [internal] load build context                                                                                                                                                                  0.0s
+ => => transferring context: 778B                                                                                                                                                                  0.0s
+ => CACHED [2/4] WORKDIR /app                                                                                                                                                                      0.0s
+ => CACHED [3/4] COPY . app.py /app/                                                                                                                                                               0.0s
+ => CACHED [4/4] RUN pip install --no-cache-dir --upgrade pip &&     pip install --no-cache-dir -r requirements.txt                                                                                0.0s
+ => exporting to image                                                                                                                                                                             0.0s
+ => => exporting layers                                                                                                                                                                            0.0s
+ => => writing image sha256:f6e233a7e27bebeb2b2e0f4500d2cebf3936784b4bb41498339c47459bed46a3                                                                                                       0.0s
+ => => naming to docker.io/library/udacity-microservices                                                                                                                                           0.0s
+REPOSITORY                            TAG       IMAGE ID       CREATED        SIZE
+udacity-microservices                 latest    f6e233a7e27b   17 hours ago   1.36GB
+<none>                                <none>    c73f6217de5d   17 hours ago   1.36GB
+hoanggianguet/udacity-microservices   v1.0.0    6e4f532f7924   19 hours ago   1.36GB
+<none>                                <none>    be248c0e7ade   19 hours ago   1.36GB
+gcr.io/k8s-minikube/kicbase           v0.0.39   67a4b1138d2d   4 weeks ago    1.05GB
+ * Serving Flask app 'app'
+ * Debug mode: on
+/usr/local/lib/python3.7/site-packages/sklearn/ensemble/gradient_boosting.py:34: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from ._gradient_boosting import predict_stages
+/usr/local/lib/python3.7/site-packages/sklearn/ensemble/gradient_boosting.py:34: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from ._gradient_boosting import predict_stages
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://172.17.0.2:80
+Press CTRL+C to quit
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/sklearn/ensemble/gradient_boosting.py:34: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from ._gradient_boosting import predict_stages
+/usr/local/lib/python3.7/site-packages/sklearn/ensemble/gradient_boosting.py:34: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from ._gradient_boosting import predict_stages
+ * Debugger is active!
+ * Debugger PIN: 528-287-950
+ (.devops) ubuntu@ip-172-31-12-31:~/DevOps_Microservices/project-ml-microservice-kubernetes$ 172.17.0.1 - - [08/May/2023 13:18:33] "GET / HTTP/1.1" 200 -
+[2023-05-08 13:57:11,672] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-05-08 13:57:11,735] INFO in app: Inference payload DataFrame: 
+   CHAS     RM  TAX  PTRATIO      B  LSTAT
+0     0  6.575  296     15.3  396.9   4.98
+[2023-05-08 13:57:11,770] INFO in app: Scaling Payload: 
+   CHAS     RM  TAX  PTRATIO      B  LSTAT
+0     0  6.575  296     15.3  396.9   4.98
+[2023-05-08 13:57:11,783] INFO in app: The output prediction is: [20.35373177134412]
+172.17.0.1 - - [08/May/2023 13:57:11] "POST /predict HTTP/1.1" 200 -
